@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { GraduationCap, Briefcase, Users, CheckCircle2, ArrowRight, X, ChevronRight, Zap, Award, Target, Layout, Star, TrendingUp } from 'lucide-react';
+import { GraduationCap, Briefcase, Users, CheckCircle2, ArrowRight, X, Zap, Award, Target, Layout, Star, TrendingUp } from 'lucide-react';
 
 // --- Types ---
 

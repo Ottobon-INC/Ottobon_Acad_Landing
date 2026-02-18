@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, ArrowUp } from 'lucide-react';
-import Navbar from './components/Navbar';
+// Navbar is hidden for now
+// import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AuthWallModal from './components/AuthWallModal';
 import MorphingBackground from './components/MorphingBackground';

@@ -1,17 +1,9 @@
 
-import React from 'react';
-import { Mail, Phone, Linkedin, Instagram, ArrowUp } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Phone, Linkedin, Instagram } from 'lucide-react';
 
 import logo from '../assets/logo (1).png';
 
 const Footer = () => {
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
 
     return (
         <footer className="bg-[#0B0F19] text-white/70 py-16 border-t border-white/5 relative z-10">
