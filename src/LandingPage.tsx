@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, ArrowUp } from 'lucide-react';
 // Navbar is hidden for now
-// import Navbar from './components/Navbar';
+import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AuthWallModal from './components/AuthWallModal';
 import MorphingBackground from './components/MorphingBackground';
@@ -90,7 +90,7 @@ export default function LandingPage() {
     return (
         <div className="bg-[#0A0A0A] min-h-screen font-sans selection:bg-[#FFD166] selection:text-[#181229] relative">
             <MorphingBackground mode={'grid'} />
-            {/* <Navbar onLoginClick={() => setAuthModalOpen(true)} /> */}
+            <Navbar onLoginClick={() => setAuthModalOpen(true)} />
             <AuthWallModal isOpen={authModalOpen} onClose={() => setAuthModalOpen(false)} />
             <HeroSection onOpenAuth={() => setAuthModalOpen(true)} />
 
