@@ -1,0 +1,33 @@
+# Dependencies
+node_modules
+
+# Build output (will be built inside Docker)
+dist
+
+# Version control
+.git
+.gitignore
+
+# IDE / Editor
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+build_log.txt
+tailwind_log.txt
+
+# Docker files (no need to copy into the image)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
