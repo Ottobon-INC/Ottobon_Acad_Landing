@@ -141,27 +141,20 @@ const HeroSection = ({ onOpenAuth }: HeroSectionProps) => {
                 </AnimatePresence>
             </div>
 
-            {/* 4. Navigation Controls (Z-20) */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-8">
-                <button onClick={prevSlide} className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md transition-colors">
-                    <ChevronLeft className="w-6 h-6" />
-                </button>
+            {/* 4. Navigation Arrows (vertically centered on sides, high z-index) */}
+            <button
+                onClick={prevSlide}
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md transition-colors"
+            >
+                <ChevronLeft className="w-6 h-6" />
+            </button>
 
-                <div className="flex gap-4">
-                    {SLIDES.map((s, idx) => (
-                        <button
-                            key={s.id}
-                            onClick={() => setCurrentSlide(idx)}
-                            className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${idx === currentSlide ? `w-12 bg-gradient-to-r ${s.theme}` : 'w-2 bg-white/20 hover:bg-white/40'
-                                }`}
-                        />
-                    ))}
-                </div>
-
-                <button onClick={nextSlide} className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md transition-colors">
-                    <ChevronRight className="w-6 h-6" />
-                </button>
-            </div>
+            <button
+                onClick={nextSlide}
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md transition-colors"
+            >
+                <ChevronRight className="w-6 h-6" />
+            </button>
 
             {/* Add global style definition for custom shine animation if not in tailwind config */}
             <style>{`

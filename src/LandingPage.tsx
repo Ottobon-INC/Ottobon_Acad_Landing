@@ -89,7 +89,7 @@ export default function LandingPage() {
     return (
         <div className="bg-[#0A0A0A] min-h-screen font-sans selection:bg-[#FFD166] selection:text-[#181229] relative">
             <MorphingBackground mode={'grid'} />
-            <Navbar onLoginClick={() => setAuthModalOpen(true)} />
+            {/* <Navbar onLoginClick={() => setAuthModalOpen(true)} /> */}
             <AuthWallModal isOpen={authModalOpen} onClose={() => setAuthModalOpen(false)} />
             <HeroSection onOpenAuth={() => setAuthModalOpen(true)} />
 
