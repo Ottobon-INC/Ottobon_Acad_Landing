@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Inter", sans-serif;
+    --font-heading: "Outfit", sans-serif;
+}
+
+/* ============================================
+   OTTOBON ACADEMY DESIGN SYSTEM
+   ============================================ */
+
+:root {
+    /* ===== COLOR PALETTE ===== */
+    /* Primary - Brand Identity */
+    --color-primary: #181229;
+    --color-primary-hover: #2D2447;
+    --color-primary-light: rgba(24, 18, 41, 0.05);
+
+    /* Secondary - Calm & Professional */
+    --color-secondary: #5F9B8C;
+    --color-secondary-hover: #4D8270;
+    --color-secondary-light: rgba(95, 155, 140, 0.1);
+
+    /* Accent - Energy & Action */
+    --color-accent: #FF7D2D;
+    --color-accent-hover: #E66A1A;
+    --color-accent-light: rgba(255, 125, 45, 0.1);
+
+    /* Success - Growth & Positive */
+    --color-success: #A0C382;
+    --color-success-hover: #8BAF6D;
+    --color-success-light: rgba(160, 195, 130, 0.1);
+
+    /* Neutrals */
+    --color-background: #FCFAF9;
+    --color-surface: #FFFFFF;
+    --color-text: #181229;
+    --color-text-muted: rgba(24, 18, 41, 0.7);
+    --color-text-light: rgba(24, 18, 41, 0.5);
+
+    /* ===== SPACING SCALE (8px base) ===== */
+    --space-1: 0.5rem;
+    /* 8px */
+    --space-2: 1rem;
+    /* 16px */
+    --space-3: 1.5rem;
+    /* 24px */
+    --space-4: 2rem;
+    /* 32px */
+    --space-5: 2.5rem;
+    /* 40px */
+    --space-6: 3rem;
+    /* 48px */
+    --space-8: 4rem;
+    /* 64px */
+    --space-10: 5rem;
+    /* 80px */
+    --space-12: 6rem;
+    /* 96px */
+
+    /* ===== TYPOGRAPHY ===== */
+    /* ===== TYPOGRAPHY ===== */
+    /* --font-heading and --font-body are now managed by Tailwind @theme as --font-heading and --font-sans */
+
+    /* ===== BORDER RADIUS ===== */
+    --radius-sm: 0.5rem;
+    /* 8px */
+    --radius-md: 0.75rem;
+    /* 12px */
+    --radius-lg: 1rem;
+    /* 16px */
+    --radius-xl: 1.5rem;
+    /* 24px */
+    --radius-2xl: 2rem;
+    /* 32px */
+    --radius-full: 9999px;
+
+    /* ===== SHADOWS ===== */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+    /* ===== TRANSITIONS ===== */
+    --transition-fast: 150ms ease;
+    --transition-base: 200ms ease;
+    --transition-slow: 300ms ease;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--color-text);
+    overflow-x: clip;
+    /* Modern alternative to hidden that preserves sticky positioning */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    /* bold headings usually look better */
+}
+
+/* ============================================
+   UNIFIED BUTTON SYSTEM
+   ============================================ */
+
+/* Primary Button - Main CTAs */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all var(--transition-base);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: none;
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Secondary Button - Alternative Actions */
+.btn-secondary {
+    background-color: white;
+    color: var(--color-primary);
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all var(--transition-base);
+    border: 2px solid var(--color-primary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Accent Button - High Energy CTAs */
+.btn-accent {
+    background-color: var(--color-accent);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all var(--transition-base);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: none;
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-accent:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+.btn-accent:active {
+    transform: translateY(0);
+}
+
+.btn-accent:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Button Size Variants */
+.btn-sm {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+}
+
+.btn-lg {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+}
+
+.btn-xl {
+    padding: 1.5rem 3rem;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-xl);
+}
+
+/* Icon-only Button */
+.btn-icon {
+    padding: 0.75rem;
+    border-radius: var(--radius-full);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus Visible Improvements */
+*:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Background Pattern from Uiverse.io by csemszepp */
+.hero-geometric-bg {
+    width: 100%;
+    height: 100%;
+    --s: 82px;
+    --c1: #EAE0D5;
+    /* Warm Beige */
+    --c2: #FDFBF7;
+    /* Light Cream */
+    --c3: #F5F1EA;
+    /* Medium Beige */
+
+    --_g: var(--c3) 0 120deg, #0000 0;
+    background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
+        conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
+        conic-gradient(from 60deg at calc(200% / 3),
+            var(--c3) 60deg,
+            var(--c2) 0 120deg,
+            #0000 0),
+        conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
+        linear-gradient(90deg,
+            var(--c1) calc(100% / 6),
+            var(--c2) 0 50%,
+            var(--c1) 0 calc(500% / 6),
+            var(--c2) 0);
+    background-size: calc(1.732 * var(--s)) var(--s);
+}
+
+/* Information/Offerings Pattern from Uiverse.io by csemszepp */
+.offerings-geometric-bg {
+    width: 100%;
+    height: 100%;
+    --s: 194px;
+    /* control the size */
+    --c1: #F5E6CA;
+    /* Warm Light Beige (Brand Yellow-ish) */
+    --c2: #C1D6CD;
+    /* Soft Teal/Green */
+    --c3: #5F9B8C;
+    /* Brand Secondary Teal (Base) */
+
+    --_l: #0000 calc(25% / 3), var(--c1) 0 25%, #0000 0;
+    --_g: conic-gradient(from 120deg at 50% 87.5%, var(--c1) 120deg, #0000 0);
+
+    background: var(--_g), var(--_g) 0 calc(var(--s) / 2),
+        conic-gradient(from 180deg at 75%, var(--c2) 60deg, #0000 0),
+        conic-gradient(from 60deg at 75% 75%, var(--c1) 0 60deg, #0000 0),
+        linear-gradient(150deg, var(--_l)) 0 calc(var(--s) / 2),
+        conic-gradient(at 25% 25%,
+            #0000 50%,
+            var(--c2) 0 240deg,
+            var(--c1) 0 300deg,
+            var(--c2) 0),
+        linear-gradient(-150deg, var(--_l)) var(--c3);
+    background-size: calc(0.866 * var(--s)) var(--s);
+}
+
+@layer utilities {
+    @keyframes shine {
+        0% {
+            left: -100%;
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        50% {
+            left: 200%;
+            opacity: 0;
+        }
+
+        100% {
+            left: 200%;
+            opacity: 0;
+        }
+    }
+
+    .animate-shine {
+        animation: shine 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
