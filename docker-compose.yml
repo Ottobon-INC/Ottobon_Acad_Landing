@@ -1,0 +1,14 @@
+services:
+  ottobon-landing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ottobon-academy-landing
+    ports:
+      - "4200:80"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
