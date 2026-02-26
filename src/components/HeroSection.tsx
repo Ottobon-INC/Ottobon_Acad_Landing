@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment } from '@react-three/drei';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronRight, ChevronLeft, Lock } from 'lucide-react';
+import { ArrowRight, ChevronRight, ChevronLeft, Lock, Target } from 'lucide-react';
 import ParticleSphere from './ParticleSphere';
 
 interface SlideConfig {
@@ -20,7 +20,7 @@ const SLIDES: SlideConfig[] = [
     {
         id: 0,
         headline: "Unlock Global Career Access",
-        subtext: "Master the AI skills that top enterprises demand. Your gateway to elite consulting roles starts here.",
+        subtext: "Master the skills that top enterprises demand. Your gateway to elite consulting roles starts here — highly personalized to your unique skills.",
         cta: "Start Your Journey",
         color: "#FFD700",       // Gold
         secondaryColor: "#FFFFFF", // White
@@ -30,8 +30,8 @@ const SLIDES: SlideConfig[] = [
     {
         id: 1,
         headline: "Learn Like An Expert",
-        subtext: "Experience mentor-led cohorts where AI accelerates your learning path by 10x.",
-        cta: "Explore Courses",
+        subtext: "Experience mentor-led cohorts where specialized technology accelerates your learning path by 10x.",
+        cta: "Explore Offerings",
         color: "#0000FF",       // Blue
         secondaryColor: "#00FFFF", // Cyan
         distort: 0.6,
@@ -40,7 +40,7 @@ const SLIDES: SlideConfig[] = [
     {
         id: 2,
         headline: "Build The Future Now",
-        subtext: "Don't just watch the AI revolution. Build intelligent applications that change the world.",
+        subtext: "Don't just watch the revolution. Build intelligent applications that change the world with guidance from industry specialists.",
         cta: "Join Community",
         color: "#800080",       // Purple
         secondaryColor: "#FF00FF", // Pulse/Magenta
@@ -55,6 +55,7 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onOpenAuth }: HeroSectionProps) => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [showJourneyOptions, setShowJourneyOptions] = useState(false);
 
     const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
     const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
@@ -66,6 +67,17 @@ const HeroSection = ({ onOpenAuth }: HeroSectionProps) => {
     }, []);
 
     const slide = SLIDES[currentSlide];
+
+    const handleCTAClick = () => {
+        if (slide.cta === "Start Your Journey") {
+            setShowJourneyOptions(true);
+        } else if (slide.cta === "Explore Offerings") {
+            const section = document.getElementById('offerings');
+            if (section) section.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            onOpenAuth();
+        }
+    };
 
     return (
         <section className="relative w-full h-screen min-h-[800px] bg-[#0A0A0A] overflow-hidden flex flex-col items-center justify-center">
@@ -105,44 +117,92 @@ const HeroSection = ({ onOpenAuth }: HeroSectionProps) => {
             {/* 3. Foreground Content (Glassmorphism, Centered, Z-10) */}
             <div className="relative z-10 w-full max-w-4xl px-6 flex flex-col items-center justify-center text-center">
                 <AnimatePresence mode='wait'>
-                    <motion.div
-                        key={slide.id}
-                        initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                        exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
-                        transition={{ duration: 0.6, ease: "easeInOut" }}
-                        className="flex flex-col items-center"
-                    >
-                        <div className="flex flex-col items-center justify-center">
-                            {/* Headline */}
-                            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight mb-4 font-heading">
-                                <span className={`bg-clip-text text-transparent bg-gradient-to-r ${slide.theme}`}>
-                                    {slide.headline.split(' ').slice(0, 2).join(' ')}
-                                </span>
-                                <br />
-                                {slide.headline.split(' ').slice(2).join(' ')}
-                            </h1>
+                    {!showJourneyOptions ? (
+                        <motion.div
+                            key={slide.id}
+                            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                            exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                            className="flex flex-col items-center"
+                        >
+                            <div className="flex flex-col items-center justify-center">
+                                {/* Headline */}
+                                <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight mb-4 font-heading">
+                                    <span className={`bg-clip-text text-transparent bg-gradient-to-r ${slide.theme}`}>
+                                        {slide.headline.split(' ').slice(0, 2).join(' ')}
+                                    </span>
+                                    <br />
+                                    {slide.headline.split(' ').slice(2).join(' ')}
+                                </h1>
 
-                            {/* Subtext */}
-                            <p className="text-xl md:text-2xl text-slate-300 font-light max-w-2xl mb-8">
-                                {slide.subtext}
-                            </p>
+                                {/* Subtext */}
+                                <p className="text-xl md:text-2xl text-slate-300 font-light max-w-2xl mb-8">
+                                    {slide.subtext}
+                                </p>
 
-                            {/* CTA Button with 'Shine' Effect */}
+                                {/* CTA Button with 'Shine' Effect */}
+                                <button
+                                    onClick={handleCTAClick}
+                                    className="relative px-8 py-4 rounded-full bg-white text-black font-bold text-lg overflow-hidden group hover:scale-105 transition-transform duration-300"
+                                >
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        <Lock size={18} className="opacity-50" />
+                                        {slide.cta}
+                                        <ArrowRight className="w-5 h-5" />
+                                    </span>
+                                    {/* Shine Animation Element */}
+                                    <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-[-25deg] animate-shine" />
+                                </button>
+                            </div>
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="journey-options"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[40px] max-w-2xl w-full"
+                        >
+                            <h2 className="text-3xl font-black text-white mb-4">How should we begin?</h2>
+                            <p className="text-slate-400 mb-8">Choose the path that fits your current needs.</p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <button
+                                    onClick={onOpenAuth}
+                                    className="flex flex-col items-start p-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all text-left group"
+                                >
+                                    <div className="w-10 h-10 rounded-full bg-[#FFD700]/20 flex items-center justify-center text-[#FFD700] mb-4 group-hover:scale-110 transition-transform">
+                                        <Target size={20} />
+                                    </div>
+                                    <h4 className="font-bold text-white mb-1">Help me navigate</h4>
+                                    <p className="text-xs text-slate-500">We'll set up your profile and identify the best growth gaps for you.</p>
+                                </button>
+
+                                <button
+                                    onClick={() => {
+                                        const sec = document.getElementById('offerings');
+                                        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+                                        setShowJourneyOptions(false);
+                                    }}
+                                    className="flex flex-col items-start p-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all text-left group"
+                                >
+                                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 mb-4 group-hover:scale-110 transition-transform">
+                                        <ArrowRight size={20} />
+                                    </div>
+                                    <h4 className="font-bold text-white mb-1">Explore myself</h4>
+                                    <p className="text-xs text-slate-500">Dive straight into our specialized offerings and career tools.</p>
+                                </button>
+                            </div>
+
                             <button
-                                onClick={onOpenAuth}
-                                className="relative px-8 py-4 rounded-full bg-white text-black font-bold text-lg overflow-hidden group hover:scale-105 transition-transform duration-300"
+                                onClick={() => setShowJourneyOptions(false)}
+                                className="mt-8 text-slate-500 hover:text-white text-sm font-bold uppercase tracking-widest"
                             >
-                                <span className="relative z-10 flex items-center gap-2">
-                                    <Lock size={18} className="opacity-50" />
-                                    {slide.cta}
-                                    <ArrowRight className="w-5 h-5" />
-                                </span>
-                                {/* Shine Animation Element */}
-                                <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-[-25deg] animate-shine" />
+                                Back
                             </button>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    )}
                 </AnimatePresence>
             </div>
 

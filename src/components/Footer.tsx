@@ -34,9 +34,9 @@ const Footer = () => {
                 <div className="space-y-6">
                     <h4 className="text-white font-bold text-lg">Quick Links</h4>
                     <ul className="space-y-4 text-sm">
-                        <li><a href="#" className="hover:text-white transition-colors">Courses</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Assessment</a></li>
-                        <li><a href="#" className="hover:text-white transition-colors">Enrollment</a></li>
+                        <li><button onClick={() => document.getElementById('offerings')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors">Offerings</button></li>
+                        <li><button onClick={() => document.getElementById('methodology')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors">Methodology</button></li>
+                        <li><button onClick={() => document.getElementById('inquiries')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors">FAQ</button></li>
                     </ul>
                 </div>
 
@@ -49,8 +49,8 @@ const Footer = () => {
                             <a href="mailto:hr@ottobon.in" className="hover:text-white transition-colors">hr@ottobon.in</a>
                         </li>
                         <li className="flex items-center gap-3">
-                            <MessageCircle className="w-4 h-4 text-slate-400" />
-                            <span className="hover:text-white transition-colors">+91 9281011683</span>
+                            <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                            <a href="https://wa.me/919281011683" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Chat on WhatsApp</a>
                         </li>
                     </ul>
                     <div className="flex gap-4 pt-2">

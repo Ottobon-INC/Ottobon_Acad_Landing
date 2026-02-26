@@ -8,8 +8,8 @@ interface NavbarProps {
 
 const Navbar = ({ onLoginClick }: NavbarProps) => {
     const [isScrolled, setIsScrolled] = useState(false);
-    const scrollToOfferings = () => {
-        const section = document.getElementById('offerings');
+    const scrollToSection = (id: string) => {
+        const section = document.getElementById(id);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
@@ -50,7 +50,9 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
             {/* Right: CTA & Links */}
             <div className="flex items-center gap-6">
                 <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-                    <button onClick={scrollToOfferings} className="hover:text-white transition-colors">Offerings</button>
+                    <button onClick={() => scrollToSection('offerings')} className="hover:text-white transition-colors">Offerings</button>
+                    <button onClick={() => scrollToSection('methodology')} className="hover:text-white transition-colors">Methodology</button>
+                    <button onClick={() => scrollToSection('inquiries')} className="hover:text-white transition-colors">FAQ</button>
                 </div>
                 <button
                     onClick={onLoginClick}

@@ -34,28 +34,28 @@ const offerings: Offering[] = [
     {
         id: 'course',
         title: "Course Platform",
-        category: "Learn from a Digital Twin",
-        description: "Access your mentor's Digital Twin — an AI replica trained on their real expertise. Whether it's cohort learning, self-paced modules, or workshops, every lesson is human-expert verified and personalized to your pace.",
+        category: "Learn from Verified Experts",
+        description: "Access specialized mentorship through life-like digital replicas trained on real human expertise. Every lesson is human-expert verified, personalized to your pace, and designed to save you time and money.",
         color: "#5F9B8C",
         icon: <School className="w-8 h-8" />,
         features: [
-            "Digital Twin–Powered Cohorts",
+            "Expert-Verified Cohorts",
             "Bingeable, Self-Paced Modules",
-            "Intensive Hands-On Workshops"
+            "Hands-On Specialist Workshops"
         ],
         subOfferings: [
             {
                 title: "Cohort Learning",
-                badge: "Digital Twin–Led",
-                desc: "Structured learning guided by your mentor's Digital Twin, with real-world projects and cohort collaboration — available no matter where you are.",
-                features: ["Expert-verified curriculum", "Capstone projects", "Team collaboration"],
+                badge: "Mentor-Led",
+                desc: "Structured learning guided by verified mentor expertise, with real-world projects and cohort collaboration — available no matter where you are.",
+                features: ["Verified curriculum", "Capstone projects", "Team collaboration"],
                 icon: <Target className="w-5 h-5" />,
                 color: "#FF7D2D"
             },
             {
                 title: "On-Demand",
                 badge: "Binge-Ready",
-                desc: "Short, addictive modules you can binge like Netflix. Personalized to your level, powered by your mentor's Digital Twin.",
+                desc: "Short, addictive modules you can binge like Netflix. Personalized to your level, powered by proven industry expertise.",
                 features: ["Snackable episodes", "Adaptive difficulty", "Practice simulations"],
                 icon: <Zap className="w-5 h-5" />,
                 color: "#5F9B8C"
@@ -74,19 +74,19 @@ const offerings: Offering[] = [
         id: 'career',
         title: "Career Ladder",
         category: "Future-Proof Career",
-        description: "AI career tools built on real human expertise. Build ATS-ready resumes, practice with AI mock interviews trained on actual interview patterns, and find jobs that match your personality — all human-expert verified.",
+        description: "Professional career tools built on real human expertise. Build resumes that recruiters actually want to see, practice with simulated interviews, and find jobs that match your unique skills and interests.",
         color: "#FF7D2D",
         icon: <Briefcase className="w-8 h-8" />,
         features: [
-            "AI Resume Builder",
-            "Smart Job Finder",
+            "Smart Resume Builder",
+            "Personalized Job Finder",
             "Mock Interview Practice"
         ],
         subOfferings: [
             {
                 title: "Resume Building",
                 badge: "Expert-Verified",
-                desc: "Create JD-based resumes optimized by AI trained on what real recruiters look for — not generic templates.",
+                desc: "Create JD-based resumes optimized by insights from real recruiters — focusing on what actually gets you hired.",
                 features: ["ATS-Optimized Templates", "JD-Based Tailoring", "Instant Refinement"],
                 icon: <Layout className="w-5 h-5" />,
                 color: "#64748b"
@@ -94,15 +94,15 @@ const offerings: Offering[] = [
             {
                 title: "Mock Interviews",
                 badge: "Expert-Verified",
-                desc: "Practice with an AI interviewer trained on real industry interview patterns. Get feedback that mirrors what actual hiring managers care about.",
-                features: ["Scenario-based Questions", "Detailed Feedback Analysis", "Actionable Improvement Tips"],
+                desc: "Practice with simulated interviews based on real industry patterns. Get feedback that mirrors what actual hiring managers care about.",
+                features: ["Scenario-based Questions", "Detailed Performance Analysis", "Actionable Improvement Tips"],
                 icon: <Users className="w-5 h-5" />,
                 color: "#FF7D2D"
             },
             {
                 title: "Job Finder",
                 badge: "Smart Match",
-                desc: "Finds roles that fit both your skills and personality — whether you're in a metro or a Tier 2 city.",
+                desc: "Finds roles that fit both your skills and personality — identifying the gaps and matching you to your best fit.",
                 features: ["Personality Matching", "Real-time Job Alerts", "Culture Fit Analysis"],
                 icon: <TrendingUp className="w-5 h-5" />,
                 color: "#5F9B8C"
@@ -112,20 +112,20 @@ const offerings: Offering[] = [
     {
         id: 'expert',
         title: "Expert App",
-        category: "Your Mentor's Digital Twin",
-        description: "Access a Digital Twin of real industry professionals — not a generic AI chatbot. Every answer represents verified expert knowledge. The AI only delivers what the human expert has approved.",
+        category: "Verified Guidance",
+        description: "Direct access to industry professionals. Every answer represents verified expert knowledge, ensuring you get the most accurate and reliable guidance for your career journey.",
         color: "#A0C382",
         icon: <Users className="w-8 h-8" />,
         features: [
-            "Digital Twin Mentorship",
-            "Human-Expert Verified Q&A",
-            "Live Expert Masterclasses"
+            "Scale-Ready Mentorship",
+            "One-on-One Live Sessions",
+            "Human-Verified Q&A"
         ],
         subOfferings: [
             {
-                title: "Digital Twin Mentorship",
+                title: "Mentor Connectivity",
                 badge: "Human-Verified",
-                desc: "Get personalized answers from your mentor's Digital Twin — a faithful AI replica of their expertise, available 24/7.",
+                desc: "Get personalized answers from specialized replicas of mentor expertise, available 24/7 to solve your blockers.",
                 features: ["Personalized Roadmap", "Career Advice", "Code Reviews"],
                 icon: <Users className="w-5 h-5" />,
                 color: "#A0C382"
@@ -133,7 +133,7 @@ const offerings: Offering[] = [
             {
                 title: "Technical Q&A",
                 badge: "Expert-Verified",
-                desc: "Don't get stuck. Receive verified answers from Digital Twins trained on real expert knowledge — not hallucinated AI guesses.",
+                desc: "Don't get stuck. Receive verified answers based on real expert knowledge — highly personalized to your skills.",
                 features: ["Verified Solutions", "Debug Support", "Best Practices"],
                 icon: <CheckCircle2 className="w-5 h-5" />,
                 color: "#5F9B8C"
@@ -141,8 +141,8 @@ const offerings: Offering[] = [
             {
                 title: "Expert Sessions",
                 badge: "Live & Interactive",
-                desc: "Build skills through live sessions with actual human experts. The guardrail: real humans always have the final word.",
-                features: ["Live Workshops", "Industry Insights", "Q&A Sessions"],
+                desc: "Build skills through live sessions with actual human experts. Real-time interaction and deep-dive masterclasses.",
+                features: ["One-on-One Sessions", "Industry Insights", "Live Masterclasses"],
                 icon: <Star className="w-5 h-5" />,
                 color: "#FF7D2D"
             }

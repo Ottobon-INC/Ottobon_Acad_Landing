@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp, ArrowUp, Tv, Route } from 'lucide-react';
+import { ChevronDown, ChevronUp, ArrowUp, Tv, Route, MessageCircle } from 'lucide-react';
 import { Helmet } from '@slorber/react-helmet-async';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
@@ -285,7 +285,7 @@ export default function LandingPage() {
                 </div>
 
                 {/* 4. Your Learning Journey — Training Wheels Stepper */}
-                <div className="px-6 md:px-20 relative z-10 mb-32">
+                <div id="methodology" className="px-6 md:px-20 relative z-10 mb-32">
                     <div className="max-w-5xl mx-auto">
                         <div className="text-center mb-16">
                             <motion.div
@@ -349,7 +349,7 @@ export default function LandingPage() {
 
 
                 {/* 3. FAQ Content */}
-                <div className="px-6 md:px-20 relative z-10">
+                <div id="inquiries" className="px-6 md:px-20 relative z-10">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
@@ -362,27 +362,27 @@ export default function LandingPage() {
                             {[
                                 {
                                     q: "What is a Digital Twin of a mentor?",
-                                    a: "A Digital Twin is an AI replica trained on a real human expert's knowledge, teaching style, and judgment. It's not a generic chatbot — it faithfully represents that specific mentor's expertise, verified by the expert themselves."
+                                    a: "A Digital Twin is a highly intelligent replica trained on a real human expert's knowledge, teaching style, and judgment. It faithfully represents that specific mentor's expertise, verified by the expert themselves, to provide you with consistent, high-quality guidance."
                                 },
                                 {
-                                    q: "How do I know the AI answers are accurate?",
-                                    a: "Every answer the Digital Twin provides is human-expert verified. The AI only represents what the expert has approved — it never guesses or hallucinates. Real humans provide the ultimate answers; the platform just delivers them."
+                                    q: "How do I know the answers are accurate?",
+                                    a: "Every insight the platform provides is human-expert verified. Our technology only represents what the expert has approved — it doesn't guess or provide unverified information. Real humans provide the ultimate content; the platform just delivers it with unprecedented personalization."
                                 },
                                 {
                                     q: "I'm from a smaller city. Will this work for me?",
-                                    a: "Absolutely. Ottobon Academy was designed to break geography barriers. Whether you're in a Tier 1 metro or a Tier 3 town, you get the same world-class Digital Twin mentorship, the same verified curriculum, and the same career support."
+                                    a: "Absolutely. Ottobon Academy was designed to break geography barriers. Whether you're in a Tier 1 metro or a Tier 3 town, you get the same world-class mentorship, specialized curriculum, and career support. We even provide specialized assistance for those focusing on refining their communication skills."
                                 },
                                 {
                                     q: "What does 'binge-ready' learning mean?",
-                                    a: "Our modules are designed like short, addictive episodes — think Netflix for learning. Each lesson is snackable, personalized to your level, and adapts as you progress. It's built to keep you engaged, not bored."
+                                    a: "Our modules are designed like short, engaging episodes — think of it as a streaming service for your career. Each lesson is snackable, personalized to your level, and adapts as you progress. It's built to keep you engaged and moving forward."
                                 },
                                 {
                                     q: "How does the learning adapt as I progress?",
-                                    a: "We use a 'training wheels' framework: you start with concrete, guided practice — then the platform gradually removes scaffolding as you grow, moving you toward independent, abstract thinking. The difficulty evolves with you."
+                                    a: "We use a 'training wheels' framework: you start with concrete, guided practice — then the platform gradually removes scaffolding as you grow, moving you toward independent, expert-level thinking. The difficulty evolves with you to ensure you're always challenged but never overwhelmed."
                                 },
                                 {
                                     q: "Do real human experts still participate?",
-                                    a: "Yes, always. Digital Twins handle day-to-day mentorship at scale, but live Expert Sessions, masterclasses, and final reviews are conducted by the actual human experts. The guardrail: humans always have the final word."
+                                    a: "Yes, always. While our intelligent replicas handle day-to-day mentorship at scale, live Expert Sessions, masterclasses, and final reviews are conducted by the actual human experts. We ensure that for critical learning moments, humans always have the final word."
                                 }
                             ].map((item, i) => (
                                 <FAQItem
@@ -393,6 +393,7 @@ export default function LandingPage() {
                                 />
                             ))}
                         </div>
+
                     </div>
                 </div>
             </section>
