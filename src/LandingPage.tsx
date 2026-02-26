@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, ArrowUp, Tv, Route } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from '@slorber/react-helmet-async';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AuthWallModal from './components/AuthWallModal';
