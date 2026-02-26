@@ -8,6 +8,12 @@ interface NavbarProps {
 
 const Navbar = ({ onLoginClick }: NavbarProps) => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const scrollToOfferings = () => {
+        const section = document.getElementById('offerings');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,13 +50,11 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
             {/* Right: CTA & Links */}
             <div className="flex items-center gap-6">
                 <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-                    <button onClick={onLoginClick} className="hover:text-white transition-colors">Courses</button>
-                    <button onClick={onLoginClick} className="hover:text-white transition-colors">Mentorship</button>
-                    <button onClick={onLoginClick} className="hover:text-white transition-colors">Community</button>
+                    <button onClick={scrollToOfferings} className="hover:text-white transition-colors">Offerings</button>
                 </div>
                 <button
                     onClick={onLoginClick}
-                    className="px-5 py-2.5 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-200 transition-colors flex items-center gap-2"
+                    className="px-5 py-2.5 rounded-full bg-[#C79F4C] text-white font-bold text-sm hover:bg-[#D2AD60] transition-colors flex items-center gap-2"
                 >
                     <Lock size={14} className="opacity-50" />
                     Start Learning

@@ -209,7 +209,7 @@ export default function LandingPage() {
                 </div>
 
                 {/* 1. Offerings Content */}
-                <div className="px-6 md:px-20 relative z-10 mb-32">
+                <div id="offerings" className="px-6 md:px-20 relative z-10 mb-32">
                     <div className="max-w-7xl mx-auto">
 
                         {/* Section Header */}

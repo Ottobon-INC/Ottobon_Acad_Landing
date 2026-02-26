@@ -1,5 +1,5 @@
 
-import { Mail, Phone, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MessageCircle, Linkedin, Instagram } from 'lucide-react';
 
 import logo from '../assets/logo (1).png';
 
@@ -49,13 +49,13 @@ const Footer = () => {
                             <a href="mailto:hr@ottobon.in" className="hover:text-white transition-colors">hr@ottobon.in</a>
                         </li>
                         <li className="flex items-center gap-3">
-                            <Phone className="w-4 h-4 text-slate-400" />
+                            <MessageCircle className="w-4 h-4 text-slate-400" />
                             <span className="hover:text-white transition-colors">+91 9281011683</span>
                         </li>
                     </ul>
                     <div className="flex gap-4 pt-2">
-                        <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
-                        <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors"><Instagram className="w-5 h-5" /></a>
+                        <a href="https://www.linkedin.com/company/ottobon-academy-pvt-ltd/posts/?feedView=all" target="_blank" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+                        <a href="https://www.instagram.com/ottobon.verse/" target="_blank" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors"><Instagram className="w-5 h-5" /></a>
                     </div>
                 </div>
             </div>
