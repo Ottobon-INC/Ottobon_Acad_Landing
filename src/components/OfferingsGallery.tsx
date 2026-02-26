@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { Target, Zap, Award, TrendingUp, Users, ArrowRight, Layout, Briefcase, GraduationCap, CheckCircle2, Star } from 'lucide-react';
+import { Target, Zap, Award, TrendingUp, Users, ArrowRight, Layout, Briefcase, School, CheckCircle2, Star } from 'lucide-react';
 import FlipCard from './FlipCard';
 
 type PanelId = 'course' | 'career' | 'expert';
@@ -27,7 +27,7 @@ const OfferingsGallery = () => {
             id: 'course' as PanelId,
             title: "Course Platform",
             subtitle: "Master the Machine",
-            icon: <GraduationCap className="w-6 h-6" />,
+            icon: <School className="w-6 h-6" />,
             color: "#5F9B8C",
             content: <CourseContent />
         },

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, ArrowUp, Tv, Route } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AuthWallModal from './components/AuthWallModal';
@@ -88,6 +89,56 @@ export default function LandingPage() {
 
     return (
         <div className="bg-[#0A0A0A] min-h-screen font-sans selection:bg-[#FFD166] selection:text-[#181229] relative">
+            <Helmet>
+                <title>Ottobon Academy | Digital Twin Mentorship & AI Career Accelerator</title>
+                <meta name="description" content="Master AI skills with life-like Digital Twins of real experts. Human-expert verified curriculum, binge-ready learning episodes, and AI career tools." />
+
+                {/* Search Engine Verification Tags */}
+                <meta name="google-site-verification" content="GSC_VERIFICATION_CODE_PLACEHOLDER" />
+                <meta name="msvalidate.01" content="BING_VERIFICATION_CODE_PLACEHOLDER" />
+
+                {/* Canonical Tag */}
+                <link rel="canonical" href="https://ottobon.academy/" />
+
+                {/* Open Graph Tags */}
+                <meta property="og:title" content="Ottobon Academy | Digital Twin Mentorship" />
+                <meta property="og:description" content="Master AI skills with life-like Digital Twins of real experts. Your career, accelerated." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://ottobon.academy/" />
+                <meta property="og:image" content="https://ottobon.academy/og-image.jpg" />
+
+                {/* Twitter Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Ottobon Academy | Digital Twin Mentorship" />
+                <meta name="twitter:description" content="Master AI skills with life-like Digital Twins of real experts." />
+                <meta name="twitter:image" content="https://ottobon.academy/og-image.jpg" />
+
+                {/* Structured Data (JSON-LD) */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        "name": "Ottobon Academy",
+                        "url": "https://ottobon.academy/",
+                        "logo": "https://ottobon.academy/logo.png",
+                        "description": "Ottobon Academy provides Digital Twin mentorship and AI career acceleration."
+                    })}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Course",
+                        "name": "AI Career Accelerator",
+                        "description": "Master AI skills with life-like Digital Twins of real experts. Verified curriculum and cohort learning.",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Ottobon Academy",
+                            "sameAs": "https://ottobon.academy/"
+                        }
+                    })}
+                </script>
+            </Helmet>
+
             <MorphingBackground mode={'grid'} />
             <Navbar onLoginClick={() => setAuthModalOpen(true)} />
             <AuthWallModal isOpen={authModalOpen} onClose={() => setAuthModalOpen(false)} />

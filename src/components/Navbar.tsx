@@ -27,7 +27,14 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
         >
             {/* Left: Logo */}
             <div className="flex items-center gap-3">
-                <img src={logo} alt="Ottobon Academy" className="w-12 h-12 object-contain" />
+                <img
+                    src={logo}
+                    alt="Ottobon Academy"
+                    className="w-12 h-12 object-contain"
+                    loading="lazy"
+                    width="48"
+                    height="48"
+                />
                 {/* Added invert for dark mode if logo is dark, assuming logo (1) is dark based on previous light theme */}
                 <span className="font-outfit font-bold text-xl tracking-tight text-white">
                     Ottobon Academy

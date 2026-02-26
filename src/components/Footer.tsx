@@ -14,7 +14,14 @@ const Footer = () => {
                     <div className="flex items-center gap-3">
                         {/* Custom Gold Brand Logo */}
                         <div className="relative w-12 h-12 flex items-center justify-center">
-                            <img src={logo} alt="Ottobon Academy" className="w-full h-full object-contain" />
+                            <img
+                                src={logo}
+                                alt="Ottobon Academy"
+                                className="w-full h-full object-contain"
+                                loading="lazy"
+                                width="48"
+                                height="48"
+                            />
                         </div>
                         <span className="text-2xl font-black text-white tracking-widest">OTTOBON</span>
                     </div>

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { GraduationCap, Briefcase, Users, CheckCircle2, ArrowRight, X, ChevronRight, Zap, Award, Target, Layout, Star, TrendingUp } from 'lucide-react';
+import { School, Briefcase, Users, CheckCircle2, ArrowRight, X, Zap, Award, Target, Layout, Star, TrendingUp } from 'lucide-react';
 
 // --- Types ---
 
@@ -33,7 +33,7 @@ const offerings: Offering[] = [
         category: "Master the Machine",
         description: "Choose your path with our comprehensive learning solutions. Whether you prefer mentor-led cohorts, self-paced on-demand courses, or intensive workshops, we have the right format for you.",
         color: "#5F9B8C",
-        icon: <GraduationCap className="w-8 h-8" />,
+        icon: <School className="w-8 h-8" />,
         features: [
             "Cohort Learning: Structured & Mentor-Led",
             "On-Demand: Flexible & Self-Paced",

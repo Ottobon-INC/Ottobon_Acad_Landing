@@ -1,9 +1,11 @@
-
+import { HelmetProvider } from 'react-helmet-async';
 import LandingPage from './LandingPage';
 
 function App() {
   return (
-    <LandingPage />
+    <HelmetProvider>
+      <LandingPage />
+    </HelmetProvider>
   )
 }
 

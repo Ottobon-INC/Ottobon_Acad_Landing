@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
-    GraduationCap, Briefcase, Users, CheckCircle2, ArrowRight, X,
+    School, Briefcase, Users, CheckCircle2, ArrowRight, X,
     Target, Zap, Award, Layout, Star, TrendingUp
 } from 'lucide-react';
 import FlipCard from './FlipCard';
@@ -37,7 +37,7 @@ const offerings: Offering[] = [
         category: "Learn from a Digital Twin",
         description: "Access your mentor's Digital Twin — an AI replica trained on their real expertise. Whether it's cohort learning, self-paced modules, or workshops, every lesson is human-expert verified and personalized to your pace.",
         color: "#5F9B8C",
-        icon: <GraduationCap className="w-8 h-8" />,
+        icon: <School className="w-8 h-8" />,
         features: [
             "Digital Twin–Powered Cohorts",
             "Bingeable, Self-Paced Modules",

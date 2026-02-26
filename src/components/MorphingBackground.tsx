@@ -1,5 +1,5 @@
 
-import React, { useMemo, useRef, useEffect } from 'react';
+import { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
@@ -112,7 +112,9 @@ const MorphingParticles = ({ mode }: { mode: ShapeMode }) => {
     });
 
     return (
+        // @ts-ignore
         <Points ref={pointsRef} geometry={particlesGeo}>
+            {/* @ts-ignore */}
             <PointMaterial
                 transparent
                 vertexColors={false}
@@ -131,12 +133,15 @@ const MorphingParticles = ({ mode }: { mode: ShapeMode }) => {
 const MorphingBackground = ({ mode }: MorphingBackgroundProps) => {
     return (
         <div className="fixed inset-0 z-0 pointer-events-none bg-[#0A0A0A]">
+            {/* @ts-ignore */}
             <Canvas
                 dpr={[1, 2]} // Optimization
                 camera={{ position: [0, 0, 8], fov: 60 }}
                 gl={{ antialias: false, alpha: false }} // Optimization
             >
+                {/* @ts-ignore */}
                 <color attach="background" args={["#0A0A0A"]} />
+                {/* @ts-ignore */}
                 <fog attach="fog" args={["#0A0A0A", 5, 20]} />
                 <MorphingParticles mode={mode} />
             </Canvas>

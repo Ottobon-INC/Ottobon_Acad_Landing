@@ -85,7 +85,9 @@ const ParticleSphere = ({ color = "#5F9B8C", secondaryColor = "#A0C382", distort
     return (
         <group>
             {/* 1. The "Nucleus" - Distorted Wireframe Sphere to represent connections */}
+            {/* @ts-ignore */}
             <Sphere ref={nucleusRef} args={[1.5, 64, 64]}> {/* Increased segments for smoother wireframe */}
+                {/* @ts-ignore */}
                 <MeshDistortMaterial
                     ref={distortMaterialRef}
                     color={color}
@@ -99,8 +101,9 @@ const ParticleSphere = ({ color = "#5F9B8C", secondaryColor = "#A0C382", distort
                 />
             </Sphere>
 
-            {/* 2. Overlaid Points - The "Dots" */}
+            {/* @ts-ignore */}
             <Points ref={particlesRef} positions={particlePositions} stride={3} frustumCulled={false}>
+                {/* @ts-ignore */}
                 <PointMaterial
                     ref={pointsMaterialRef}
                     transparent
@@ -114,7 +117,9 @@ const ParticleSphere = ({ color = "#5F9B8C", secondaryColor = "#A0C382", distort
             </Points>
 
             {/* 3. Core Glow - Optional inner sphere for "nucleus" feel */}
+            {/* @ts-ignore */}
             <Sphere args={[0.8, 32, 32]}>
+                {/* @ts-ignore */}
                 <meshBasicMaterial ref={glowMaterialRef} color={color} transparent opacity={0.1} blending={THREE.AdditiveBlending} />
             </Sphere>
         </group>

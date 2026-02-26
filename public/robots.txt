@@ -1,0 +1,20 @@
+# [Ottobon Technical SEO Standard]
+# Optimized for Ottobon Academy Landing Page & Platform
+
+User-agent: *
+
+# Allow crawling of all public marketing content
+Allow: /
+
+# Block private areas, dashboards, and admin routes
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /api/
+Disallow: /auth/
+
+# Prevent crawling of technical search/filter parameters (covered by Canonicals)
+# Disallow: /*?* 
+
+# Direct bots to the Sitemap
+Sitemap: https://ottobon.academy/sitemap.xml
