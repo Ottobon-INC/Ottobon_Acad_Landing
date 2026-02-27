@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 interface FlipCardProps {
     title: string;
@@ -9,9 +10,11 @@ interface FlipCardProps {
     features?: string[];
     color: string;
     badge?: string;
+    link?: string;
+    comingSoon?: boolean;
 }
 
-const FlipCard: React.FC<FlipCardProps> = ({ title, subtitle, icon, description, features, color, badge }) => {
+const FlipCard: React.FC<FlipCardProps> = ({ title, subtitle, icon, description, features, color, badge, link, comingSoon }) => {
     return (
         <div className="group w-full h-[280px] [perspective:1000px]">
             <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl rounded-xl">
@@ -44,10 +47,16 @@ const FlipCard: React.FC<FlipCardProps> = ({ title, subtitle, icon, description,
                             </span>
                         )}
 
-                        <span className="text-[10px] text-slate-500 mt-2 font-mono flex items-center gap-2">
-                            <span className="w-1 h-1 rounded-full bg-slate-500 animate-pulse" />
-                            HOVER FOR DETAILS
-                        </span>
+                        {comingSoon ? (
+                            <span className="text-[10px] font-bold px-3 py-1 rounded-full border border-slate-700 bg-slate-800/50 text-slate-500 mt-2 uppercase tracking-widest">
+                                Coming Soon
+                            </span>
+                        ) : (
+                            <span className="text-[10px] text-slate-500 mt-2 font-mono flex items-center gap-2">
+                                <span className="w-1 h-1 rounded-full bg-slate-500 animate-pulse" />
+                                HOVER FOR DETAILS
+                            </span>
+                        )}
                     </div>
                 </div>
 
@@ -78,7 +87,7 @@ const FlipCard: React.FC<FlipCardProps> = ({ title, subtitle, icon, description,
                         </div>
 
                         {features && (
-                            <div className="space-y-2">
+                            <div className="space-y-2 mb-4">
                                 {features.slice(0, 3).map((feat, i) => (
                                     <div key={i} className="flex items-center gap-2 text-xs text-slate-400 bg-black/20 p-1.5 rounded-lg border border-white/5">
                                         <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }} />
@@ -86,6 +95,29 @@ const FlipCard: React.FC<FlipCardProps> = ({ title, subtitle, icon, description,
                                     </div>
                                 ))}
                             </div>
+                        )}
+
+                        {link && !comingSoon && (
+                            <a
+                                href={link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-auto group/btn flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all duration-300 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                GO TO PLATFORM
+                                <ArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
+                            </a>
+                        )}
+
+                        {comingSoon && (
+                            <button
+                                disabled
+                                className="mt-auto flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-[10px] uppercase tracking-widest border border-slate-700 bg-slate-800/50 text-slate-500 cursor-not-allowed"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                COMING SOON
+                            </button>
                         )}
                     </div>
                 </div>

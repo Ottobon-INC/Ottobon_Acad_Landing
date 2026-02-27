@@ -7,8 +7,11 @@ interface NavbarProps {
 }
 
 const Navbar = ({ onLoginClick }: NavbarProps) => {
+    const [activeSection, setActiveSection] = useState<string>('');
     const [isScrolled, setIsScrolled] = useState(false);
+
     const scrollToSection = (id: string) => {
+        setActiveSection(id);
         const section = document.getElementById(id);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -18,10 +21,39 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
+
+            // Simple active section detection based on scroll
+            const sections = ['offerings', 'methodology', 'inquiries'];
+            const current = sections.find(section => {
+                const el = document.getElementById(section);
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    return rect.top <= 100 && rect.bottom >= 100;
+                }
+                return false;
+            });
+            if (current) setActiveSection(current);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const NavButton = ({ id, label }: { id: string, label: string }) => (
+        <button
+            onClick={() => scrollToSection(id)}
+            className={`relative py-1 transition-colors hover:text-white group ${activeSection === id ? 'text-white' : 'text-slate-300'}`}
+        >
+            {label}
+            {/* Active underline */}
+            {activeSection === id && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#C79F4C]" />
+            )}
+            {/* Hover underline (shown when not active) */}
+            {activeSection !== id && (
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C79F4C] transition-all duration-300 group-hover:w-full" />
+            )}
+        </button>
+    );
 
     return (
         <nav
@@ -41,7 +73,6 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                     width="48"
                     height="48"
                 />
-                {/* Added invert for dark mode if logo is dark, assuming logo (1) is dark based on previous light theme */}
                 <span className="font-outfit font-bold text-xl tracking-tight text-white">
                     Ottobon Academy
                 </span>
@@ -49,14 +80,14 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
 
             {/* Right: CTA & Links */}
             <div className="flex items-center gap-6">
-                <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-                    <button onClick={() => scrollToSection('offerings')} className="hover:text-white transition-colors">Offerings</button>
-                    <button onClick={() => scrollToSection('methodology')} className="hover:text-white transition-colors">Methodology</button>
-                    <button onClick={() => scrollToSection('inquiries')} className="hover:text-white transition-colors">FAQ</button>
+                <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <NavButton id="offerings" label="Offerings" />
+                    <NavButton id="methodology" label="Methodology" />
+                    <NavButton id="inquiries" label="FAQ" />
                 </div>
                 <button
                     onClick={onLoginClick}
-                    className="px-5 py-2.5 rounded-full bg-[#C79F4C] text-white font-bold text-sm hover:bg-[#D2AD60] transition-colors flex items-center gap-2"
+                    className="px-5 py-2.5 rounded-full bg-[#C79F4C] text-black font-bold text-sm hover:bg-[#D2AD60] transition-colors flex items-center gap-2"
                 >
                     <Lock size={14} className="opacity-50" />
                     Start Learning

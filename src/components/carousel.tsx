@@ -15,6 +15,8 @@ interface SubOffering {
     features: string[];
     icon: React.ReactNode;
     color: string;
+    link?: string;
+    comingSoon?: boolean;
 }
 
 interface Offering {
@@ -50,7 +52,8 @@ const offerings: Offering[] = [
                 desc: "Structured learning guided by verified mentor expertise, with real-world projects and cohort collaboration — available no matter where you are.",
                 features: ["Verified curriculum", "Capstone projects", "Team collaboration"],
                 icon: <Target className="w-5 h-5" />,
-                color: "#FF7D2D"
+                color: "#FF7D2D",
+                link: "https://learn.ottobon.in"
             },
             {
                 title: "On-Demand",
@@ -58,7 +61,8 @@ const offerings: Offering[] = [
                 desc: "Short, addictive modules you can binge like Netflix. Personalized to your level, powered by proven industry expertise.",
                 features: ["Snackable episodes", "Adaptive difficulty", "Practice simulations"],
                 icon: <Zap className="w-5 h-5" />,
-                color: "#5F9B8C"
+                color: "#5F9B8C",
+                link: "https://learn.ottobon.in"
             },
             {
                 title: "Workshops",
@@ -66,7 +70,8 @@ const offerings: Offering[] = [
                 desc: "Short, focused hands-on sessions for fast skill acquisition. Every technique taught is backed by real mentor expertise.",
                 features: ["Quick sessions", "Deep dives", "E-Certificates"],
                 icon: <Award className="w-5 h-5" />,
-                color: "#A0C382"
+                color: "#A0C382",
+                link: "https://learn.ottobon.in"
             }
         ]
     },
@@ -89,7 +94,8 @@ const offerings: Offering[] = [
                 desc: "Create JD-based resumes optimized by insights from real recruiters — focusing on what actually gets you hired.",
                 features: ["ATS-Optimized Templates", "JD-Based Tailoring", "Instant Refinement"],
                 icon: <Layout className="w-5 h-5" />,
-                color: "#64748b"
+                color: "#64748b",
+                comingSoon: true
             },
             {
                 title: "Mock Interviews",
@@ -97,7 +103,8 @@ const offerings: Offering[] = [
                 desc: "Practice with simulated interviews based on real industry patterns. Get feedback that mirrors what actual hiring managers care about.",
                 features: ["Scenario-based Questions", "Detailed Performance Analysis", "Actionable Improvement Tips"],
                 icon: <Users className="w-5 h-5" />,
-                color: "#FF7D2D"
+                color: "#FF7D2D",
+                comingSoon: true
             },
             {
                 title: "Job Finder",
@@ -105,7 +112,9 @@ const offerings: Offering[] = [
                 desc: "Finds roles that fit both your skills and personality — identifying the gaps and matching you to your best fit.",
                 features: ["Personality Matching", "Real-time Job Alerts", "Culture Fit Analysis"],
                 icon: <TrendingUp className="w-5 h-5" />,
-                color: "#5F9B8C"
+                color: "#5F9B8C",
+                comingSoon: false,
+                link: "https://jobs.ottobon.cloud"
             }
         ]
     },
@@ -128,7 +137,8 @@ const offerings: Offering[] = [
                 desc: "Get personalized answers from specialized replicas of mentor expertise, available 24/7 to solve your blockers.",
                 features: ["Personalized Roadmap", "Career Advice", "Code Reviews"],
                 icon: <Users className="w-5 h-5" />,
-                color: "#A0C382"
+                color: "#A0C382",
+                comingSoon: true
             },
             {
                 title: "Technical Q&A",
@@ -136,7 +146,8 @@ const offerings: Offering[] = [
                 desc: "Don't get stuck. Receive verified answers based on real expert knowledge — highly personalized to your skills.",
                 features: ["Verified Solutions", "Debug Support", "Best Practices"],
                 icon: <CheckCircle2 className="w-5 h-5" />,
-                color: "#5F9B8C"
+                color: "#5F9B8C",
+                comingSoon: true
             },
             {
                 title: "Expert Sessions",
@@ -144,7 +155,8 @@ const offerings: Offering[] = [
                 desc: "Build skills through live sessions with actual human experts. Real-time interaction and deep-dive masterclasses.",
                 features: ["One-on-One Sessions", "Industry Insights", "Live Masterclasses"],
                 icon: <Star className="w-5 h-5" />,
-                color: "#FF7D2D"
+                color: "#FF7D2D",
+                comingSoon: true
             }
         ]
     }
@@ -224,16 +236,32 @@ const OfferingSlide = ({
                                     {offering.description}
                                 </p>
 
-                                <button
-                                    onClick={() => setIsExplored(true)}
-                                    className="group flex items-center gap-4 w-fit px-8 py-4 rounded-full font-bold text-black transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_-5px_var(--shadow-color)]"
-                                    style={{ backgroundColor: offering.color, '--shadow-color': offering.color } as any}
-                                >
-                                    EXPLORE {offering.title.toUpperCase()}
-                                    <div className="bg-black text-white rounded-full p-1.5 group-hover:rotate-45 transition-transform duration-300">
-                                        <ArrowRight size={14} />
-                                    </div>
-                                </button>
+                                <div className="flex flex-wrap items-center gap-4">
+                                    <button
+                                        onClick={() => setIsExplored(true)}
+                                        className="group flex items-center gap-4 w-fit px-8 py-4 rounded-full font-bold text-black transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_-5px_var(--shadow-color)]"
+                                        style={{ backgroundColor: offering.color, '--shadow-color': offering.color } as any}
+                                    >
+                                        EXPLORE {offering.title.toUpperCase()}
+                                        <div className="bg-black text-white rounded-full p-1.5 group-hover:rotate-45 transition-transform duration-300">
+                                            <ArrowRight size={14} />
+                                        </div>
+                                    </button>
+
+                                    {offering.id === 'course' && (
+                                        <a
+                                            href="https://learn.ottobon.in"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="group flex items-center gap-4 w-fit px-8 py-4 rounded-full font-bold text-white border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+                                        >
+                                            GO TO PLATFORM
+                                            <div className="bg-white/10 text-white rounded-full p-1.5 group-hover:translate-x-1 transition-transform duration-300">
+                                                <ArrowRight size={14} />
+                                            </div>
+                                        </a>
+                                    )}
+                                </div>
                             </div>
 
                             {/* Right: Key Highlights */}
@@ -298,6 +326,8 @@ const OfferingSlide = ({
                                             description={sub.desc}
                                             features={sub.features}
                                             color={sub.color}
+                                            link={sub.link}
+                                            comingSoon={sub.comingSoon}
                                         />
                                     </motion.div>
                                 ))}

@@ -9,6 +9,7 @@ import AuthWallModal from './components/AuthWallModal';
 import MorphingBackground from './components/MorphingBackground';
 import Footer from './components/Footer';
 import OfferingsCarousel from './components/carousel';
+import Chatbot from './components/Chatbot';
 
 const FAQItem = ({
     item,
@@ -417,6 +418,7 @@ export default function LandingPage() {
                     )
                 }
             </AnimatePresence >
+            <Chatbot />
         </div >
     );
 }
