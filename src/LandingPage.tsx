@@ -91,51 +91,201 @@ export default function LandingPage() {
     return (
         <div className="bg-[#0A0A0A] min-h-screen font-sans selection:bg-[#FFD166] selection:text-[#181229] relative">
             <Helmet>
-                <title>Ottobon Academy | Digital Twin Mentorship & AI Career Accelerator</title>
-                <meta name="description" content="Master AI skills with life-like Digital Twins of real experts. Human-expert verified curriculum, binge-ready learning episodes, and AI career tools." />
+                <title>Ottobon Academy | Career in AI: AI Native Full Stack Developer, Course Platform & Expert App</title>
+                <meta name="description" content="Your all-in-one career in AI destination. Master AI Native Full Stack Development on our course platform. Use our expert app for mentorship, resume builder for ATS jobs, and mock interviews for hiring. The ultimate jobs searcher for AI roles." />
 
                 {/* Search Engine Verification Tags */}
                 <meta name="google-site-verification" content="GSC_VERIFICATION_CODE_PLACEHOLDER" />
                 <meta name="msvalidate.01" content="BING_VERIFICATION_CODE_PLACEHOLDER" />
 
                 {/* Canonical Tag */}
-                <link rel="canonical" href="https://ottobon.academy/" />
+                <link rel="canonical" href="https://academy.ottobon.in/" />
 
                 {/* Open Graph Tags */}
-                <meta property="og:title" content="Ottobon Academy | Digital Twin Mentorship" />
-                <meta property="og:description" content="Master AI skills with life-like Digital Twins of real experts. Your career, accelerated." />
+                <meta property="og:site_name" content="Ottobon Academy" />
+                <meta property="og:locale" content="en_US" />
+                <meta property="og:title" content="Ottobon Academy | Your Career in AI" />
+                <meta property="og:description" content="Master AI Native Full Stack Development. Digital Twin mentorship, ATS Resume Builder, and AI Mock Interviews." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://ottobon.academy/" />
-                <meta property="og:image" content="https://ottobon.academy/og-image.jpg" />
+                <meta property="og:url" content="https://academy.ottobon.in/" />
+                <meta property="og:image" content="https://academy.ottobon.in/og-image.jpg" />
 
                 {/* Twitter Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Ottobon Academy | Digital Twin Mentorship" />
-                <meta name="twitter:description" content="Master AI skills with life-like Digital Twins of real experts." />
-                <meta name="twitter:image" content="https://ottobon.academy/og-image.jpg" />
+                <meta name="twitter:title" content="Ottobon Academy | Your Career in AI" />
+                <meta name="twitter:description" content="Master AI Native Full Stack Development with real industry experts." />
+                <meta name="twitter:image" content="https://academy.ottobon.in/og-image.jpg" />
 
                 {/* Structured Data (JSON-LD) */}
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
+                        "@type": "WebSite",
+                        "name": "Ottobon Academy",
+                        "url": "https://academy.ottobon.in/",
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": "https://academy.ottobon.in/?q={search_term_string}",
+                            "query-input": "required name=search_term_string"
+                        }
+                    })}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
                         "@type": "Organization",
                         "name": "Ottobon Academy",
-                        "url": "https://ottobon.academy/",
-                        "logo": "https://ottobon.academy/logo.png",
-                        "description": "Ottobon Academy provides Digital Twin mentorship and AI career acceleration."
+                        "url": "https://academy.ottobon.in/",
+                        "logo": "https://academy.ottobon.in/logo.png",
+                        "description": "Ottobon Academy is the ultimate destination for your career in AI, providing course platform learning, expert app mentorship, and AI career tools."
                     })}
                 </script>
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Course",
-                        "name": "AI Career Accelerator",
-                        "description": "Master AI skills with life-like Digital Twins of real experts. Verified curriculum and cohort learning.",
+                        "name": "AI Native Full Stack Developer Program",
+                        "description": "Comprehensive course platform for becoming an AI Native Full Stack Developer. Master AI for UI/UX, Marketing, and Agent Development using the Training Wheels Framework.",
                         "provider": {
                             "@type": "Organization",
                             "name": "Ottobon Academy",
-                            "sameAs": "https://ottobon.academy/"
+                            "sameAs": "https://academy.ottobon.in/"
+                        },
+                        "hasCourseInstance": [
+                            {
+                                "@type": "CourseInstance",
+                                "courseMode": "Online",
+                                "name": "AI Native Full Stack Developer Cohort"
+                            }
+                        ]
+                    })}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Ottobon Expert App & Mentorship",
+                        "description": "Personalized 24/7 AI-driven mentorship through our Expert App. Specialized guidance for AI Native professionals.",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Ottobon Academy"
+                        },
+                        "areaServed": "Worldwide",
+                        "hasOfferCatalog": {
+                            "@type": "OfferCatalog",
+                            "name": "Mentorship Programs",
+                            "itemListElement": [
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "AI Native Full Stack Developer Mentorship"
+                                    }
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "AI Marketing & UX Mentorship"
+                                    }
+                                }
+                            ]
                         }
+                    })}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "AI Jobs Searcher & Career Tools",
+                        "description": "The ultimate jobs searcher for AI roles, featuring an ATS resume builder and AI-driven mock interviews.",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Ottobon Academy"
+                        },
+                        "hasOfferCatalog": {
+                            "@type": "OfferCatalog",
+                            "name": "Career Acceleration Toolkit",
+                            "itemListElement": [
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Expert-Verified Resume Builder"
+                                    }
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "AI Mock Interviews"
+                                    }
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "AI Jobs Searcher"
+                                    }
+                                }
+                            ]
+                        }
+                    })}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "What is a Digital Twin of a mentor?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "A Digital Twin is a highly intelligent replica trained on a real human expert's knowledge, teaching style, and judgment. It faithfully represents that specific mentor's expertise, verified by the expert themselves, to provide you with consistent, high-quality guidance."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "How do I know the answers are accurate?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Every insight the platform provides is human-expert verified. Our technology only represents what the expert has approved — it doesn't guess or provide unverified information. Real humans provide the ultimate content; the platform just delivers it with unprecedented personalization."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "I'm from a smaller city. Will this work for me?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Absolutely. Ottobon Academy was designed to break geography barriers. Whether you're in a Tier 1 metro or a Tier 3 town, you get the same world-class mentorship, specialized curriculum, and career support. We even provide specialized assistance for those focusing on refining their communication skills."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "What does 'binge-ready' learning mean?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Our modules are designed like short, engaging episodes — think of it as a streaming service for your career. Each lesson is snackable, personalized to your level, and adapts as you progress. It's built to keep you engaged and moving forward."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "How does the learning adapt as I progress?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "We use a 'training wheels' framework: you start with concrete, guided practice — then the platform gradually removes scaffolding as you grow, moving you toward independent, expert-level thinking. The difficulty evolves with you to ensure you're always challenged but never overwhelmed."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Do real human experts still participate?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes, always. While our intelligent replicas handle day-to-day mentorship at scale, live Expert Sessions, masterclasses, and final reviews are conducted by the actual human experts. We ensure that for critical learning moments, humans always have the final word."
+                                }
+                            }
+                        ]
                     })}
                 </script>
             </Helmet>
@@ -350,7 +500,7 @@ export default function LandingPage() {
 
 
                 {/* 3. FAQ Content */}
-                <div id="inquiries" className="px-6 md:px-20 relative z-10">
+                <div id="inquiries" className="px-6 md:px-20 relative z-20 pb-24">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">

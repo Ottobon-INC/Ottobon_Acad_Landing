@@ -17,4 +17,4 @@ Disallow: /auth/
 # Disallow: /*?* 
 
 # Direct bots to the Sitemap
-Sitemap: https://ottobon.academy/sitemap.xml
+Sitemap: https://academy.ottobon.in/sitemap.xml

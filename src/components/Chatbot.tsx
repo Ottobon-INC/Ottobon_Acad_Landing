@@ -2,7 +2,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, User, Loader2, Sparkles } from 'lucide-react';
-import { processUserQuery } from '../services/chatService';
+
+import { handleSriRequest } from '../services/sriHandler';
+import type { ChatRequest } from '../types/chat';
 
 interface Message {
     id: string;
@@ -52,9 +54,17 @@ const Chatbot: React.FC = () => {
         setInput('');
         setIsTyping(true);
 
-        // Simulate a slight delay for better UX
-        setTimeout(() => {
-            const chatResult = processUserQuery(messageText);
+        try {
+            // SRI RESOLUTION: Identifying User and Mentor
+            const sriRequest: ChatRequest = {
+                userId: "user_123", // Placeholder for actual Auth ID
+                mentorId: "expert_twin_alpha", // Placeholder for selected Twin
+                message: messageText
+            };
+
+            // SRI PROCESSING
+            const chatResult = await handleSriRequest(sriRequest);
+
             const botMsg: Message = {
                 id: (Date.now() + 1).toString(),
                 text: chatResult.answer,
@@ -63,8 +73,11 @@ const Chatbot: React.FC = () => {
                 followUps: chatResult.followUps
             };
             setMessages(prev => [...prev, botMsg]);
+        } catch (error) {
+            console.error("SRI Request Failed:", error);
+        } finally {
             setIsTyping(false);
-        }, 800);
+        }
     };
 
     return (
@@ -118,8 +131,8 @@ const Chatbot: React.FC = () => {
                                                 {msg.sender === 'user' ? <User className="w-3 h-3 text-blue-400" /> : <Bot className="w-3 h-3 text-blue-400" />}
                                             </div>
                                             <div className={`p-3 rounded-2xl text-sm leading-relaxed ${msg.sender === 'user'
-                                                    ? 'bg-blue-600 text-white rounded-tr-none shadow-lg shadow-blue-900/20'
-                                                    : 'bg-slate-800/80 text-slate-200 border border-white/5 rounded-tl-none'
+                                                ? 'bg-blue-600 text-white rounded-tr-none shadow-lg shadow-blue-900/20'
+                                                : 'bg-slate-800/80 text-slate-200 border border-white/5 rounded-tl-none'
                                                 }`}>
                                                 {msg.text}
                                             </div>
