@@ -5,6 +5,7 @@ import { MessageCircle, X, Send, Bot, User, Loader2, Sparkles } from 'lucide-rea
 
 import { handleSriRequest } from '../services/sriHandler';
 import type { ChatRequest } from '../types/chat';
+import QuestionFramer from './QuestionFramer';
 
 interface Message {
     id: string;
@@ -16,6 +17,7 @@ interface Message {
 
 const Chatbot: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isFramerOpen, setIsFramerOpen] = useState(false);
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState<Message[]>([
         {
@@ -176,7 +178,17 @@ const Chatbot: React.FC = () => {
                         </div>
 
                         {/* Input Area */}
-                        <div className="p-4 bg-slate-900/50 border-t border-white/5">
+                        <div className="p-4 bg-slate-900/50 border-t border-white/5 space-y-3">
+                            {!isTyping && messages.length > 0 && messages[messages.length - 1].sender === 'bot' && (
+                                <button
+                                    onClick={() => setIsFramerOpen(true)}
+                                    className="w-full py-2 px-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold hover:bg-blue-500/20 transition-all flex items-center justify-center gap-2"
+                                >
+                                    <Sparkles size={14} />
+                                    Help me frame my question
+                                </button>
+                            )}
+
                             <form
                                 onSubmit={(e) => { e.preventDefault(); handleSend(); }}
                                 className="flex items-center gap-2 bg-slate-800/50 border border-white/10 rounded-2xl p-2 pl-4 focus-within:border-blue-500/50 transition-colors"
@@ -200,6 +212,15 @@ const Chatbot: React.FC = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            <QuestionFramer
+                isOpen={isFramerOpen}
+                onClose={() => setIsFramerOpen(false)}
+                onSelect={(question) => {
+                    setInput(question);
+                    handleSend(question);
+                }}
+            />
 
             <style>{`
                 .custom-scrollbar::-webkit-scrollbar {

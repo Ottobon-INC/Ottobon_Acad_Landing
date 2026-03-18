@@ -36,8 +36,8 @@ const offerings: Offering[] = [
     {
         id: 'course',
         title: "Course Platform",
-        category: "Learn from Verified Experts",
-        description: "Access specialized mentorship through life-like digital replicas trained on real human expertise. Every lesson is human-expert verified, personalized to your pace, and designed to save you time and money.",
+        category: "Upgrade Your Skills",
+        description: "Master the machine. Access specialized mentorship through life-like digital replicas trained on real human expertise. Personalized to your pace, designed for maximum skill retention.",
         color: "#5F9B8C",
         icon: <School className="w-8 h-8" />,
         features: [
@@ -78,8 +78,8 @@ const offerings: Offering[] = [
     {
         id: 'career',
         title: "Career Ladder",
-        category: "Future-Proof Career",
-        description: "Professional career tools built on real human expertise. Build resumes that recruiters actually want to see, practice with simulated interviews, and find jobs that match your unique skills and interests.",
+        category: "Future-Proof Growth",
+        description: "Professional tools built on real human expertise. Build resumes recruiters want, practice with simulated interviews, and find jobs that match your unique skills and personality.",
         color: "#FF7D2D",
         icon: <Briefcase className="w-8 h-8" />,
         features: [
@@ -121,8 +121,8 @@ const offerings: Offering[] = [
     {
         id: 'expert',
         title: "Expert App",
-        category: "Verified Guidance",
-        description: "Direct access to industry professionals. Every answer represents verified expert knowledge, ensuring you get the most accurate and reliable guidance for your career journey.",
+        category: "Monetize Knowledge",
+        description: "Direct access to industry professionals. For tutors, it is the platform to monetize expertise. For students, every answer represents verified expert knowledge for accurate guidance.",
         color: "#A0C382",
         icon: <Users className="w-8 h-8" />,
         features: [
@@ -242,43 +242,96 @@ const OfferingSlide = ({
                                         className="group flex items-center gap-4 w-fit px-8 py-4 rounded-full font-bold text-black transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_-5px_var(--shadow-color)]"
                                         style={{ backgroundColor: offering.color, '--shadow-color': offering.color } as any}
                                     >
-                                        EXPLORE {offering.title.toUpperCase()}
+                                        VIEW FEATURES
                                         <div className="bg-black text-white rounded-full p-1.5 group-hover:rotate-45 transition-transform duration-300">
                                             <ArrowRight size={14} />
                                         </div>
                                     </button>
+                                </div>
+                            </div>
 
-                                    {offering.id === 'course' && (
+                            {/* Right: Key Highlights or Course Platform Routing */}
+                            <div className="flex-1 relative flex flex-col items-center justify-center">
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl border border-white/5 backdrop-blur-sm -skew-y-2 transform" />
+
+                                {offering.id === 'course' ? (
+                                    <div className="relative z-10 w-full max-w-sm space-y-3">
+                                        <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Platforms</h4>
+
+                                        {/* Course Platform Card */}
                                         <a
                                             href="https://learn.ottobon.in"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="group flex items-center gap-4 w-fit px-8 py-4 rounded-full font-bold text-white border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+                                            className="group flex items-start gap-4 p-5 rounded-2xl bg-black border border-white/10 hover:border-[#5F9B8C]/50 shadow-lg transition-all duration-300 hover:bg-[#5F9B8C]/5 hover:-translate-y-1"
                                         >
-                                            GO TO PLATFORM
-                                            <div className="bg-white/10 text-white rounded-full p-1.5 group-hover:translate-x-1 transition-transform duration-300">
-                                                <ArrowRight size={14} />
+                                            <div className="p-2 rounded-lg bg-[#5F9B8C]/10 text-[#5F9B8C] mt-0.5 shrink-0">
+                                                <School size={18} />
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center justify-between mb-1">
+                                                    <span className="text-white font-bold text-sm">Course Platform</span>
+                                                </div>
+                                                <p className="text-xs text-slate-400 leading-relaxed mb-3">Access expert-verified cohorts, bingeable modules, and hands-on workshops to master in-demand skills.</p>
+                                                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#5F9B8C]/10 text-[#5F9B8C] text-xs font-bold group-hover:bg-[#5F9B8C]/20 transition-colors">
+                                                    Visit Platform <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                                                </div>
                                             </div>
                                         </a>
-                                    )}
-                                </div>
-                            </div>
 
-                            {/* Right: Key Highlights */}
-                            <div className="flex-1 relative flex flex-col items-center justify-center">
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl border border-white/5 backdrop-blur-sm -skew-y-2 transform" />
-
-                                <div className="relative z-10 w-full max-w-sm space-y-4">
-                                    <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">Key Highlights</h4>
-                                    {offering.features.map((feature, i) => (
-                                        <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-[#0A0A0A]/50 border border-white/5 backdrop-blur-md">
-                                            <div className="p-2 rounded-full bg-white/5">
-                                                <CheckCircle2 size={16} style={{ color: offering.color }} />
+                                        {/* Tutor Page Card */}
+                                        <a
+                                            href="http://72.61.228.9:8888/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="group flex items-start gap-4 p-5 rounded-2xl bg-black border border-white/10 hover:border-[#FF7D2D]/50 shadow-lg transition-all duration-300 hover:bg-[#FF7D2D]/5 hover:-translate-y-1"
+                                        >
+                                            <div className="p-2 rounded-lg bg-[#FF7D2D]/10 text-[#FF7D2D] mt-0.5 shrink-0">
+                                                <Users size={18} />
                                             </div>
-                                            <span className="text-slate-200 font-medium">{feature}</span>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center justify-between mb-1">
+                                                    <span className="text-white font-bold text-sm">Tutor Page</span>
+                                                </div>
+                                                <p className="text-xs text-slate-400 leading-relaxed mb-3">Monetize your expertise by hosting courses, mentoring students, and building your teaching brand on our elite framework.</p>
+                                                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FF7D2D]/10 text-[#FF7D2D] text-xs font-bold group-hover:bg-[#FF7D2D]/20 transition-colors">
+                                                    Visit Platform <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        {/* Enterprise Hub Card */}
+                                        <div
+                                            className="group flex items-start gap-4 p-5 rounded-2xl bg-[#0A0A0A] border border-white/5 opacity-80"
+                                        >
+                                            <div className="p-2 rounded-lg bg-[#A855F7]/10 text-[#A855F7] mt-0.5 shrink-0">
+                                                <Layout size={18} />
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center justify-between mb-1">
+                                                    <span className="text-white font-bold text-sm">Enterprise Hub</span>
+                                                    <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border border-slate-700 bg-slate-800/50 text-slate-500">Coming Soon</span>
+                                                </div>
+                                                <p className="text-xs text-slate-500 leading-relaxed mb-3">Empower your workforce with custom training frameworks, team intelligence dashboards, and internal skill certifications.</p>
+                                                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#A855F7]/5 text-[#A855F7]/50 text-xs font-bold transition-colors">
+                                                    Visit Platform <ArrowRight size={14} />
+                                                </div>
+                                            </div>
                                         </div>
-                                    ))}
-                                </div>
+                                    </div>
+                                ) : (
+                                    <div className="relative z-10 w-full max-w-sm space-y-4">
+                                        <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">Key Highlights</h4>
+                                        {offering.features.map((feature, i) => (
+                                            <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-[#0A0A0A]/50 border border-white/5 backdrop-blur-md">
+                                                <div className="p-2 rounded-full bg-white/5">
+                                                    <CheckCircle2 size={16} style={{ color: offering.color }} />
+                                                </div>
+                                                <span className="text-slate-200 font-medium">{feature}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </motion.div>
                     ) : (

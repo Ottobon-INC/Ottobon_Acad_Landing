@@ -9,6 +9,7 @@ import AuthWallModal from './components/AuthWallModal';
 import MorphingBackground from './components/MorphingBackground';
 import Footer from './components/Footer';
 import OfferingsCarousel from './components/carousel';
+import WhyUsCarousel from './components/WhyUsCarousel';
 import Chatbot from './components/Chatbot';
 
 const FAQItem = ({
@@ -465,12 +466,11 @@ export default function LandingPage() {
                             {/* Connecting line */}
                             <div className="hidden md:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-y-1/2" />
 
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                 {[
-                                    { stage: "1", title: "Guided Practice", desc: "Step-by-step walkthroughs with your Digital Twin. Every move is scaffolded.", color: "#5F9B8C", icon: "🛡️" },
-                                    { stage: "2", title: "Assisted Application", desc: "Apply skills with hints available. The Twin nudges you, but you lead.", color: "#FF7D2D", icon: "🔧" },
-                                    { stage: "3", title: "Independent Mastery", desc: "Solve real problems solo. The Twin only intervenes when you ask.", color: "#A0C382", icon: "🚀" },
-                                    { stage: "4", title: "Abstract Thinking", desc: "Connect concepts across domains. You've graduated from concrete to creative.", color: "#FFD700", icon: "💡" }
+                                    { stage: "1", title: "Listening", subtitle: "Personalized Discovery", desc: "We grab your attention by personalizing every piece of content to your background. Focus on what matters to you.", color: "#5F9B8C", icon: "👂" },
+                                    { stage: "2", title: "Comprehension", subtitle: "Verified Growth", desc: "Prove your understanding through relevant quizzes as we gradually remove the 'training wheels' of support.", color: "#FF7D2D", icon: "🧠" },
+                                    { stage: "3", title: "Articulation", subtitle: "Problem-Driven Mastery", desc: "Move beyond theory. Commmunicate solutions from a case-study perspective, solving real-world challenges.", color: "#A0C382", icon: "🗣️" }
                                 ].map((step, i) => (
                                     <motion.div
                                         key={i}
@@ -484,10 +484,11 @@ export default function LandingPage() {
                                         <div className="mx-auto w-16 h-16 rounded-full border-2 flex items-center justify-center text-2xl mb-4 bg-[#0F172A] relative z-10" style={{ borderColor: step.color }}>
                                             {step.icon}
                                         </div>
-                                        <div className="text-xs font-black uppercase tracking-widest mb-2" style={{ color: step.color }}>
-                                            Stage {step.stage}
+                                        <div className="text-xs font-black uppercase tracking-widest mb-1" style={{ color: step.color }}>
+                                            Pillar {step.stage}
                                         </div>
-                                        <h4 className="text-lg font-bold text-white mb-2">{step.title}</h4>
+                                        <h4 className="text-xl font-bold text-white mb-1">{step.title}</h4>
+                                        <p className="text-[#C79F4C] text-[10px] font-bold uppercase tracking-widest mb-3">{step.subtitle}</p>
                                         <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
                                     </motion.div>
                                 ))}
@@ -498,6 +499,9 @@ export default function LandingPage() {
 
 
 
+
+                {/* 5. Why Ottobon? — Benefits Section */}
+                <WhyUsCarousel />
 
                 {/* 3. FAQ Content */}
                 <div id="inquiries" className="px-6 md:px-20 relative z-20 pb-24">

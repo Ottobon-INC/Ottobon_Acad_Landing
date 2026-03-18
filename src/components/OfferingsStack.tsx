@@ -282,7 +282,7 @@ const OfferingCard = ({ offering, index, scrollYProgress, totalCards }: { offeri
                                     className="group flex items-center gap-4 w-fit px-8 py-4 rounded-full font-bold text-black transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_-5px_var(--shadow-color)]"
                                     style={{ backgroundColor: offering.color, '--shadow-color': offering.color } as any}
                                 >
-                                    EXPLORE {offering.title.toUpperCase()}
+                                    VIEW FEATURES
                                     <div className="bg-black text-white rounded-full p-1.5 group-hover:rotate-45 transition-transform duration-300">
                                         <ArrowRight size={14} />
                                     </div>

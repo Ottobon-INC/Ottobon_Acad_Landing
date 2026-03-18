@@ -95,7 +95,7 @@ const OfferingsGallery = () => {
                                         animate={{ opacity: 1, x: 0 }}
                                         className="hidden md:flex items-center gap-2 text-sm font-bold text-blue-400 uppercase tracking-widest"
                                     >
-                                        <span className="animate-pulse">Explore</span>
+                                        <span className="animate-pulse">View Features</span>
                                     </motion.div>
                                 )}
                                 <motion.div

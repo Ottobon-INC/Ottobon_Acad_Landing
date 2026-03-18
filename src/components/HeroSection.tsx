@@ -162,36 +162,43 @@ const HeroSection = ({ onOpenAuth }: HeroSectionProps) => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
-                            className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[40px] max-w-2xl w-full"
+                            className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[40px] max-w-4xl w-full"
                         >
                             <h2 className="text-3xl font-black text-white mb-4">How should we begin?</h2>
-                            <p className="text-slate-400 mb-8">Choose the path that fits your current needs.</p>
+                            <p className="text-slate-400 mb-8">Choose the path that fits your goals.</p>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <button
                                     onClick={onOpenAuth}
                                     className="flex flex-col items-start p-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all text-left group"
                                 >
-                                    <div className="w-10 h-10 rounded-full bg-[#FFD700]/20 flex items-center justify-center text-[#FFD700] mb-4 group-hover:scale-110 transition-transform">
+                                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mb-4 group-hover:scale-110 transition-transform">
                                         <Target size={20} />
                                     </div>
-                                    <h4 className="font-bold text-white mb-1">Help me navigate</h4>
-                                    <p className="text-xs text-slate-500">We'll set up your profile and identify the best growth gaps for you.</p>
+                                    <h4 className="font-bold text-white mb-1">Students</h4>
+                                    <p className="text-xs text-slate-500">Upgrade your skills with personalized, expert-verified mentorship.</p>
                                 </button>
 
                                 <button
-                                    onClick={() => {
-                                        const sec = document.getElementById('offerings');
-                                        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
-                                        setShowJourneyOptions(false);
-                                    }}
+                                    onClick={onOpenAuth}
                                     className="flex flex-col items-start p-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all text-left group"
                                 >
-                                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 mb-4 group-hover:scale-110 transition-transform">
+                                    <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 mb-4 group-hover:scale-110 transition-transform">
+                                        <Lock size={20} />
+                                    </div>
+                                    <h4 className="font-bold text-white mb-1">Tutors</h4>
+                                    <p className="text-xs text-slate-500">Monetize your knowledge by hosting courses on our elite framework.</p>
+                                </button>
+
+                                <button
+                                    onClick={onOpenAuth}
+                                    className="flex flex-col items-start p-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all text-left group"
+                                >
+                                    <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mb-4 group-hover:scale-110 transition-transform">
                                         <ArrowRight size={20} />
                                     </div>
-                                    <h4 className="font-bold text-white mb-1">Explore myself</h4>
-                                    <p className="text-xs text-slate-500">Dive straight into our specialized offerings and career tools.</p>
+                                    <h4 className="font-bold text-white mb-1">Enterprises</h4>
+                                    <p className="text-xs text-slate-500">Empower your team with in-house training using our framework.</p>
                                 </button>
                             </div>
 
